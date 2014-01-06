@@ -16,30 +16,28 @@ function loadPouchDB() {
 }
   
 function installBellApps() {
-  var source = 'http://bellsource:install@bellsource.cloudant.com'
-  var db = new PouchDB(source + '/replicator');
-  // Get all of the Docs in the `replicator` database, they describe how each replication should be run
-  db.allDocs({include_docs: true}, function(err, response) { 
-    var replicationEntries = response.docs
-    var i = 0
-    // A recursive function
-    var replicate = function() {
-      var replicatorEntry = replicationEntries[i]
-      PouchDB.replicate(replicatorEntry.source, replicatorEntry.target, {
-        create_target: true,
-        complete: function() {
-          if (replicationEntries.length <= i) {
-            i++
-            replicate()
-          }
-          else {
-            alert("Installation has completed")
-            window.location = window.location.host + '/apps/_design/bell/lms/index.html'
-          }
+  var source = 'http://bellsource.iriscouch.com'
+  var target = window.location.host
+  var i = 0
+  // @todo Need the rest of the databases here
+  var databases = ['apps', 'facilities', 'members', 'feedback']
+  // A recursive function to replicate the databases one at a time
+  var replicate = function() {
+    var database = databases[i]
+    PouchDB.replicate(source + '/' + database, target + '/' + database, {
+      create_target: true,
+      complete: function() {
+        if (databases.length <= i) {
+          i++
+          replicate()
         }
-      })
-    }
-    // Start the recursion
-    replicate()
-  }); 
+        else {
+          alert("Installation has completed")
+          window.location = window.location.host + '/apps/_design/bell/lms/index.html'
+        }
+      }
+    })
+  }
+  // Start the recursion
+  replicate()
 } 
