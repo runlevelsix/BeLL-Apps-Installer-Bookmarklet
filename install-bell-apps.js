@@ -1,4 +1,3 @@
-
 var source = 'http://bellappssource:installpass@bellappssource.cloudant.com'
 var i = 0
 // @todo Need the rest of the databases here
@@ -20,10 +19,10 @@ var replicate = function() {
     error: function(status) {
       console.log(status);
       alert('Something went wrong:' + status)
-  	},
-  	{
-	    create_target: true
-  	}
+    }
+  },
+  {
+    create_target: true
   })
 }
 // Start the recursion
