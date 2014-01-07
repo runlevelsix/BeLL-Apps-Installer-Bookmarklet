@@ -8,7 +8,7 @@ var replicate = function() {
   var database = databases[i]
   $.couch.replicate(source + '/' + database, database, {
     success: function() {
-      if (databases.length >= i) {
+      if (databases.length > i) {
         i++
         replicate()
       }
