@@ -7,7 +7,6 @@ var databases = ['apps', 'facilities', 'members', 'feedback']
 var replicate = function() {
   var database = databases[i]
   $.couch.replicate(source + '/' + database, database, {
-    create_target: true,
     success: function() {
       if (databases.length <= i) {
         i++
@@ -21,6 +20,9 @@ var replicate = function() {
     error: function(status) {
       console.log(status);
       alert('Something went wrong:' + status)
+  	},
+  	{
+	    create_target: true
   	}
   })
 }
