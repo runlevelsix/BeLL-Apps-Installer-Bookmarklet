@@ -1,5 +1,6 @@
 var source = 'http://bellappssource:installpass@bellappssource.cloudant.com'
 var i = 0
+alert("Install script loaded. Now replicating data from " + source)
 // @todo Need the rest of the databases here
 var databases = ['apps', 'facilities', 'members', 'feedback']
 // A recursive function to replicate the databases one at a time
