@@ -16,7 +16,7 @@ function loadPouchDB() {
 }
   
 function installBellApps() {
-  var source = 'http://bellsource.iriscouch.com'
+  var source = 'http://bellappssource:installpass@bellappssource.cloudant.com'
   var target = window.location.host
   var i = 0
   // @todo Need the rest of the databases here
