@@ -2,7 +2,7 @@
 // A recursive function to replicate the databases one at a time
 var replicate = function() {
   if (i == 0) {
-    alert('We will now begin installing BeLL Apps on your CouchDB. This may take a long time depending on the size of what you are downloading from your source server and your Internet connection.  Do not close this window or your installation will be canceled.')
+    alert('We will now begin installing BeLL Apps on your CouchDB. This may take a long time depending on the size of what you are downloading from your source server and your Internet connection.  Do not close this window or your installation will be canceled.first')
   }
   var database = databases[i]
   $.couch.replicate(source + '/' + database, database, {
@@ -28,7 +28,7 @@ var replicate = function() {
 
 // Set some variables
 var databases = ["actions","apps","assignments","calendar","community","communityreports","courseschedule","coursestep","facilities","feedback","groups","install","invitations","mail","membercourseprogress","members","report","resources","shelf","stepresults","sync"]
-var source = prompt('Which source server are you installing from?', 'http://bellappssource:installpass@bellappssource.cloudant.com')
+var source = prompt('Which source server are you installing from?', 'http://bell-apps-stable:oleoleole@bell-apps-stable.cloudant.com')
 var user = prompt('What is the username of the admin account for this CouchDB? Leave blank if you have none.', '') 
 
 // Get going with replication but login first if we must
