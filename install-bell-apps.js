@@ -1,9 +1,4 @@
 
-var source = prompt('Which source server are you installing from?', 'http://bellappssource:installpass@bellappssource.cloudant.com')
-var i = 0
-alert("Install script loaded. Now replicating data from " + source)
-// @todo Need the rest of the databases here
-var databases = ["actions","apps","assignments","calendar","community","communityreports","courseschedule","coursestep","facilities","feedback","groups","install","invitations","mail","membercourseprogress","members","report","resources","shelf","stepresults","sync"]
 // A recursive function to replicate the databases one at a time
 var replicate = function() {
   var database = databases[i]
@@ -27,5 +22,29 @@ var replicate = function() {
     create_target: true
   })
 }
-// Start the recursion
-replicate()
+
+// Set some variables
+var databases = ["actions","apps","assignments","calendar","community","communityreports","courseschedule","coursestep","facilities","feedback","groups","install","invitations","mail","membercourseprogress","members","report","resources","shelf","stepresults","sync"]
+var source = prompt('Which source server are you installing from?', 'http://bellappssource:installpass@bellappssource.cloudant.com')
+var user = prompt('What is the username of the admin account for this CouchDB? Leave blank if you have none.', '') 
+
+// Get going with replication but login first if we must
+var i = 0
+if (user.length > 0) {
+  var password = prompt('What is the password for user "' + user + '"?', '')
+  $.couch.login({
+    name: user,
+    password: password,
+    success: function(data) {
+      replicate()
+    },
+    error: function(status) {
+      alert('We had trouble logging into your CouchDB. Run this script again and try different credentials.')
+    }
+  });
+}
+else {
+  replicate()
+}
+
+
