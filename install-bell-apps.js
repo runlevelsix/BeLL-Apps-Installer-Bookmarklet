@@ -4,9 +4,9 @@
 var databases = ["actions","apps","assignments","calendar","community","communityreports","courseschedule","coursestep","facilities","feedback","groups","install","invitations","mail","membercourseprogress","members","report","resources","shelf","stepresults","sync"]
 var source = prompt('Which source server are you installing from?', 'http://bell-apps-stable:oleoleole@bell-apps-stable.cloudant.com')
 var user = prompt('What is the username of the admin account for this CouchDB? If you have not created your first admin account, click "ok" and create that first account now using the link in the bottom right.', '') 
-var settings = {
-  'httpd/bind_address': '0.0.0.0'
-}
+var settings = [
+  ['httpd', 'bind_address', '0.0.0.0']
+]
 
 // A recursive function to replicate the databases one at a time
 var replicate = function() {
@@ -36,13 +36,9 @@ var replicate = function() {
 }
 
 var changeSettings = function() {
-  alert('Updating your settings now')
-  $.each(settings, function(name, value) {
-    $.ajax({
-      type: "PUT",
-      url: "/_config/" + name,
-      data: value
-    })
+  alert('Updating your CouchDB settings now')
+  settings.forEach(function(setting) {
+    $.couch.config({}, setting[0], setting[1], setting[2]);
   })
 }
 
