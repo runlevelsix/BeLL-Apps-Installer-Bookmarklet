@@ -11,7 +11,7 @@ var settings = [
 // A recursive function to replicate the databases one at a time
 var replicate = function() {
   if (i == 0) {
-    alert('We will now begin installing BeLL Apps on your CouchDB. This may take a long time depending on the size of what you are downloading from your source server and your Internet connection.  Do not close this window or your installation will be canceled.first')
+    alert('We will now begin installing BeLL Apps on your CouchDB. This may take a long time depending on the size of what you are downloading from your source server and your Internet connection.  Do not close this window or esle your installation will be canceled.')
   }
   var database = databases[i]
   $.couch.replicate(source + '/' + database, database, {
