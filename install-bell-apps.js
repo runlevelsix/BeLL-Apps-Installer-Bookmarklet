@@ -2,7 +2,7 @@ var source = prompt('Which source server are you installing from?', 'http://bell
 var i = 0
 alert("Install script loaded. Now replicating data from " + source)
 // @todo Need the rest of the databases here
-var databases = ["actions","apps","assignmentpaper","assignments","calendar","collectionlist","community","community_code","communityreports","configurations","courseschedule","coursestep","facilities","feedback","groups","install","invitations","mail","meetups","membercourseprogress","members","nationreports","newresources","report","requests","resourcefrequency","resources","shelf","stepresults","sync","usermeetups"]
+var databases = ["actions","apps","assignmentpaper","assignments","calendar","collectionlist","community","community_code","communityreports","configurations","courseschedule","coursestep","facilities","feedback","groups","install","invitations","mail","meetups","membercourseprogress","members","nationreports","report","requests","resourcefrequency","resources","shelf","stepresults","sync","usermeetups"]
 // A recursive function to replicate the databases one at a time
 var replicate = function() {
   var database = databases[i]
