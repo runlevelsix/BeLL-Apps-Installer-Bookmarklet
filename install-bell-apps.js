@@ -1,7 +1,6 @@
 
-
 // Set some variables
-var databases = ["actions","apps","assignments","calendar","community","communityreports","courseschedule","coursestep","facilities","feedback","groups","install","invitations","mail","membercourseprogress","members","report","resources","shelf","stepresults","sync"]
+var databases = ["actions","apps","assignmentpaper","assignments","calendar","collectionlist","community","community_code","communityreports","configurations","courseschedule","coursestep","facilities","feedback","groups","install","invitations","mail","meetups","membercourseprogress","members","nationreports","report","requests","resourcefrequency","shelf","stepresults","sync","usermeetups", "resources"]
 var source = prompt('Which source server are you installing from?', 'http://bell-apps-stable:oleoleole@bell-apps-stable.cloudant.com')
 var user = prompt('What is the username of the admin account for this CouchDB? If you have not created your first admin account, click "ok" and create that first account now using the link in the bottom right.', '') 
 var settings = [
