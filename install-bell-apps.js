@@ -1,7 +1,7 @@
 
 // Set some variables
 var databases = ["bell-apps-stable/actions","bell-apps-stable/apps","bell-apps-stable/assignmentpaper","bell-apps-stable/assignments","bell-apps-stable/calendar","bell-apps-stable/collectionlist","bell-apps-stable/community","bell-apps-stable/community_code","bell-apps-stable/communityreports","bell-apps-stable/configurations","bell-apps-stable/courseschedule","bell-apps-stable/coursestep","bell-apps-stable/facilities","bell-apps-stable/feedback","bell-apps-stable/groups","bell-apps-stable/install","bell-apps-stable/invitations","bell-apps-stable/mail","bell-apps-stable/meetups","bell-apps-stable/membercourseprogress","bell-apps-stable/members","bell-apps-stable/nationreports","bell-apps-stable/report","bell-apps-stable/requests","bell-apps-stable/resourcefrequency","bell-apps-stable/shelf","bell-apps-stable/stepresults","bell-apps-stable/sync","bell-apps-stable/usermeetups", "bell-apps-stable/resources"]
-var source = prompt('Which source server are you installing from?', 'http://bell-apps-stable:oleoleole@bell-apps-stable.cloudant.com')
+var source = prompt('Which source server are you installing from?', 'https://bell-apps-stable:oleoleole@bell-apps-stable.cloudant.com')
 var user = prompt('What is the username of the admin account for this CouchDB? If you have not created your first admin account, click "ok" and create that first account now using the link in the bottom right.', '') 
 var settings = [
   ['httpd', 'bind_address', '0.0.0.0']
